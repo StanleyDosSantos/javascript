@@ -3,10 +3,7 @@ const ctx = canvas.getContext("2d")
 
 const size = 30
 
-const snake = [
-    { x: 200, y: 200 },
-    { x: 230, y: 200 }
-]
+const snake = [{ x: 270, y: 240 }]
 
 let direction, loopId 
 
@@ -46,6 +43,27 @@ const moveSnake = () => {
     snake.shift()
 }
 
+const drawGrid = () => {
+    ctx.lineWidth = 1
+    ctx.strokeStyle = "white"
+
+    for (let i = 30; i < canvas.width; i+=30) {
+        ctx.beginPath()
+        ctx.lineTo(i, 0)
+        ctx.lineTo(i, 600)
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.lineTo(0, i)
+        ctx.lineTo(600, i)
+        ctx.stroke()
+    }
+
+
+}
+
+drawGrid()
+
 const gameLoop = () => {
     clearInterval(loopId)
 
@@ -58,4 +76,22 @@ const gameLoop = () => {
     }, 300)
 }
 
-gameLoop()
+//gameLoop()
+
+document.addEventListener("keydown", ({ key }) => {
+    if(key == "ArrowRight" && direction != "left") {
+        direction = "right"
+    }
+
+    if(key == "ArrowLeft" && direction != "right") {
+        direction = "left"
+    }
+
+    if(key == "ArrowDown" && direction != "up") {
+        direction = "down"
+    }
+
+    if(key == "ArrowUp" && direction != "down") {
+        direction = "up"
+    }
+})
