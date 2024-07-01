@@ -7,16 +7,29 @@ const size = 30
 
 const snake = [{ x: 270, y: 240 }]
 
-const randowNumber = (min, max) => {
+const randomNumber = (min, max) => {
     return Math.round(Math.random() * (max - min) + min)
 }
 
-h1.innerText = randowNumber(5, 10)
+const randomPosition = () => {
+    const number = randomNumber(0, canvas.width - size)
+    return Math.round(number / 30) * 30
+}
+
+const randomColor = () => {
+    const red = randomNumber(0, 255)
+    const green = randomNumber(0, 255)
+    const blue = randomNumber(0, 255)
+
+    return `rgb(${red}, ${green}, ${blue})`
+}
+
+h1.innerText = randomColor()
 
 const food = {
-    x: randowNumber(0, 570),
-    y: randowNumber(0, 570),
-    color: "yellow"
+    x: randomPosition(),
+    y: randomPosition(),
+    color: randomColor()
 }
 
 let direction, loopId 
