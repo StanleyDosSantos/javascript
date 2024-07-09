@@ -82,7 +82,7 @@ const loop = () => {
 loop()
 
 document.addEventListener('keypress', e => {
-    const tecla = e.keyif(tecla === '') {
+    const tecla = e.keyif(tecla === ' ') {
         jump()
     }
 })
@@ -97,4 +97,4 @@ document.addEventListener('keypress', e => {
     const tecla = e.keyif(tecla === 'Enter') {
         startGame()
     }
-})
+});
