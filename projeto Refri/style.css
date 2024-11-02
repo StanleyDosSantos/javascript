@@ -65,3 +65,18 @@
 #next {
     right: 30px;
 }
+
+@keyframes toActive {
+    from {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.item.active img.fruit {
+    animation: toActive 0.7s ease-in-out 1;
+}
+
+.item.active .title {
+    animation: toActive 0.7s ease-in-out 1;
+}
